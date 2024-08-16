@@ -114,10 +114,12 @@ void ShowSQXData(SQXData &sqxData) {
                          StringFormat("Commission: %.5f %s\n", sqxData.commissionValue, GetCommissionTypeString(sqxData.commissionType));
     }
     string data = "\nSQX INFO\n" +
+                  StringFormat("Broker Time: %s GMT Time: %s  Your Local Time: %s\n", TimeToString(TimeCurrent(),TIME_SECONDS),TimeToString(TimeGMT(),TIME_SECONDS),
                   StringFormat("Point value: %.2f USD\n", GetPointValue()) +
+                  StringFormat("Pip/Tick size: %.5f\n", GetPipTickSize()) +                  
                   StringFormat("Pip/Tick step: %.5f\n", GetPipTickStep()) +
                   StringFormat("Order size step: %.2f\n", GetOrderSizeStep()) +
-                  StringFormat("Pip/Tick size: %.5f\n", GetPipTickSize()) +
+                  
                   "\nSPREAD INFO\n" +
                   StringFormat("Current Spread: %.2f points\n", sqxData.currentSpread) +
                   StringFormat("Average Spread: %.2f points\n", sqxData.averageSpread) +
